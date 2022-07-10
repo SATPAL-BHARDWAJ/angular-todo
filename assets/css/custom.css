@@ -1,0 +1,15 @@
+body, * {
+    font-family: 'Edu SA Beginner', cursive;
+}
+
+.text-black {
+    color: black !important;
+}
+
+.btn.outline-dark, .btn.outline-dark:focus:not(:focus-visible) {
+	outline: 1px solid black;
+}
+
+.text-line-through {
+	text-decoration: line-through;
+}
