@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <h5 class="text-center p-3 border rounded">To-Do List</h5>
+    <button routerLink="/form" class="btn btn-outline-warning text-black" type="button"> <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M12 21v-2.125l5.3-5.3 2.125 2.125-5.3 5.3Zm-9-5v-2h7v2Zm17.125-1L18 12.875l.725-.725q.275-.275.7-.275.425 0 .7.275l.725.725q.275.275.275.7 0 .425-.275.7ZM3 12v-2h11v2Zm0-4V6h11v2Z"/></svg> Add Tasks</button>
+    <div class="list-group my-3">
+        <a href="javascript: void(0)" class="list-group-item list-group-item-action flex-column align-items-start border-warning" *ngFor="let item of service.todolist; let i = index;">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 {{ item?.done ? 'text-line-through' : '' }}">{{ item?.title }}</h5>
+                <div>
+                    <button class="btn outline-dark text-black mx-2" type="button"
+                    (click) = "service.removeItem(item?.id)"
+                    ><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6Z"/></svg></button>
+                    <button class="btn outline-dark text-black mx-2" type="button"
+                    (click)="service.done(item?.id)"
+                    ><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="m9.55 18-5.7-5.7 1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4Z"/></svg></button>
+                </div>
+            </div>
+            <p class="mb-1">{{ item?.descr }}</p>
+            <small class="text-black-50">{{ item?.date | timeAgo }}</small>
+        </a>
+    </div>
+</div>
